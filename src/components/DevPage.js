@@ -8,23 +8,29 @@ const DevPage = () => {
   const [cardsImg, setCardsImg] = useState([])
   const [cardsName, setCardsName] = useState([])
   const [cardsId, setCardsId] = useState([])
+  const [cardsSet, setCardsSet] = useState([])
 
   React.useEffect(() => {
     const cardImg = []
     const cardName = []
     const cardId = []
-    card.where({ subtypes: 'Golem' })
+    const cardSet = []
+    card.where({ subtypes: 'Jellyfish' })
       .then(cards => {
         for (let i = 0; i < cards.length; i++) {
-          console.log(cards[i])
-          cardImg.push(cards[i].imageUrl)
-          cardName.push(cards[i].name)
-          cardId.push(cards[i].id)
+          console.log(cards[i].name)
+          if (cards[i].imageUrl) {
+            cardImg.push(cards[i].imageUrl)
+            cardName.push(cards[i].name)
+            cardId.push(cards[i].id)
+            cardSet.push(cards[i].set)
+          }
         }
       })
       .then(() => setCardsImg(cardImg))
       .then(() => setCardsName(cardName))
       .then(() => setCardsId(cardId))
+      .then(() => setCardsSet(cardSet))
       .then(() => setLoaded(true))
   }, [])
 
@@ -38,11 +44,13 @@ const DevPage = () => {
         {cardsImg.map((cardImage, i) => {
           const cardName = cardsName[i]
           const cardId = cardsId[i]
+          const cardSet = cardsSet[i]
           return (<CardDisplay
             key = {i}
             cardImage = {cardImage}
             cardName = {cardName}
             cardId = {cardId}
+            cardSet = {cardSet}
           />
           )
         })}
