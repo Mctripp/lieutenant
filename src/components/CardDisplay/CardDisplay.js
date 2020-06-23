@@ -12,9 +12,14 @@ const CardDisplay = ({ cardImage, cardName, cardId, cardSet }) => {
     border: '2px solid black'
   }
 
+  // should make this window dynamic
   const imgStyle = {
     width: '12.6em',
     height: '17.6em'
+    // minWidth: '12.6em',
+    // maxWidth: '15.75em',
+    // minHeight: '17.6em',
+    // maxHeight: '22em'
   }
 
   if ({ cardImage } !== undefined) {

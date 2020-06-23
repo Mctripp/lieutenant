@@ -18,7 +18,7 @@ const DevPage = () => {
     card.where({ subtypes: 'Jellyfish' })
       .then(cards => {
         for (let i = 0; i < cards.length; i++) {
-          console.log(cards[i].name)
+          console.log(cards[i])
           if (cards[i].imageUrl) {
             cardImg.push(cards[i].imageUrl)
             cardName.push(cards[i].name)
@@ -33,6 +33,8 @@ const DevPage = () => {
       .then(() => setCardsSet(cardSet))
       .then(() => setLoaded(true))
   }, [])
+
+  // After above axios, should store in a SearchResults page for navigation
 
   if (!loaded) {
     return (
