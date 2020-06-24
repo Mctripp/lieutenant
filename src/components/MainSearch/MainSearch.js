@@ -1,18 +1,23 @@
 import React from 'react'
-import Autocomplete from '@material-ui/lab/Autocomplete'
-import TextField from '@material-ui/core/TextField'
+import { Dropdown } from 'semantic-ui-react'
 
-const MainSearch = () => {
-  return (
-    <Autocomplete
-      id="combo-box-demo"
-      options={[{ title: 'A card' },
-        { title: 'Another card' }]}
-      getOptionLabel={(option) => option.title}
-      style={{ width: 300 }}
-      renderInput={(params) => <TextField {...params} label="Search for a card name" variant="outlined" />}
-    />
-  )
-}
+const cardOptions = [
+  { text: 'Mirri, Cat Warrior' },
+  { text: 'Etali, Primal Storm' },
+  { text: 'Avacyn, Angel of Hope' }
+]
+
+const MainSearch = () => (
+  <Dropdown
+    button
+    className='icon'
+    floating
+    labeled
+    icon='card'
+    options={cardOptions}
+    search
+    text='Select Card'
+  />
+)
 
 export default MainSearch
