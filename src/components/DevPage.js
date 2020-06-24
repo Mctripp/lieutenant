@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import CardDisplay from './CardDisplay/CardDisplay'
+import MainSearch from './MainSearch/MainSearch'
 // const mtg = require('mtgsdk')
 import { card } from 'mtgsdk'
 
@@ -15,7 +16,7 @@ const DevPage = () => {
     const cardName = []
     const cardId = []
     const cardSet = []
-    card.where({ subtypes: 'Jellyfish' })
+    card.where({ subtypes: 'Cat' })
       .then(cards => {
         for (let i = 0; i < cards.length; i++) {
           console.log(cards[i])
@@ -43,6 +44,7 @@ const DevPage = () => {
   } else {
     return (
       <React.Fragment>
+        <MainSearch/>
         {cardsImg.map((cardImage, i) => {
           const cardName = cardsName[i]
           const cardId = cardsId[i]
