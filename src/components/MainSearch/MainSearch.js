@@ -8,7 +8,7 @@ const cardOptions = Object.values(cards).map((card, i) => {
   return {
     key: cardIds[i],
     value: card.name,
-    text: card.name + ' (' + card.set + ')'
+    text: card.name
   }
 })
 
@@ -19,8 +19,12 @@ const MainSearch = () => {
     setQuery(event.target.value)
   }
 
+  const handleBlur = () => {
+    setQuery('')
+  }
+
   const dynamicSearch = () => {
-    return cardOptions.filter(card => card.text.includes(query))
+    return cardOptions.filter(card => card.text.toLowerCase().includes(query.toLowerCase()))
   }
 
   if (query.length > 2) {
@@ -31,6 +35,7 @@ const MainSearch = () => {
       onSearchChange={handleChange}
       labeled
       options={dynamicSearch()}
+      onBlur={handleBlur}
       search
       text='Select Card'
     />
@@ -42,6 +47,7 @@ const MainSearch = () => {
       floating
       onSearchChange={handleChange}
       labeled
+      onBlur={handleBlur}
       search
       text='Select Card'
     />
