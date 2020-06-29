@@ -12,6 +12,12 @@ const cardOptions = Object.values(cards).map((card, i) => {
   }
 })
 
+const style = {
+  width: '50vh',
+  fontSize: '2rem',
+  border: '0.1rem solid grey'
+}
+
 const MainSearch = () => {
   const [query, setQuery] = useState('')
 
@@ -29,6 +35,7 @@ const MainSearch = () => {
 
   if (query.length > 2) {
     return (<Dropdown
+      style={style}
       button
       className='icon'
       floating
@@ -42,6 +49,7 @@ const MainSearch = () => {
     )
   } else {
     return (<Dropdown
+      style={style}
       button
       className='icon'
       floating

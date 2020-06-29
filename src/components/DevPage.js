@@ -1,8 +1,20 @@
 import React from 'react'
 // import CardDisplay from './CardDisplay/CardDisplay'
 import MainSearch from './MainSearch/MainSearch'
+import { Container, Row, Col } from 'react-bootstrap'
 // const mtg = require('mtgsdk')
 // import { card } from 'mtgsdk'
+
+const space = {
+  height: '30vh',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center'
+}
+const search = {
+  background: 'grey',
+  borderRadius: '10px'
+}
 
 const DevPage = () => {
   // const [loaded, setLoaded] = useState(false)
@@ -57,9 +69,31 @@ const DevPage = () => {
   //   )
   // })}
   return (
-    <React.Fragment>
-      <MainSearch/>
-    </React.Fragment>
+    <Container fluid="lg" className="justify-content-md-center">
+      <Col>
+        <Row style={space}/>
+        <Row className="justify-content-md-center">
+          <Col style={search}>
+            <Row className="justify-content-md-center">
+              <h2>Search for a specific card:</h2>
+            </Row>
+            <Row className="justify-content-md-center">
+              <MainSearch/>
+            </Row>
+          </Col>
+        </Row>
+        <Row style={space}/>
+        <Row className="justify-content-md-center">
+          <h3>Find a player or game:</h3>
+        </Row>
+        <Row className="justify-content-md-center">
+          <h4><a href='#'>My Games</a></h4>
+        </Row>
+        <Row className="justify-content-md-center">
+          <h4><a href='#'>My players</a></h4>
+        </Row>
+      </Col>
+    </Container>
   )
 }
 // }
