@@ -10,6 +10,8 @@ import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
 
 import DevPage from '../DevPage'
+import Games from '../Games/Games'
+import Players from '../Players/Players'
 
 class App extends Component {
   constructor () {
@@ -60,10 +62,10 @@ class App extends Component {
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
           <AuthenticatedRoute user={user} path='/games' render={() => (
-            <ChangePassword msgAlert={this.msgAlert} user={user} />
+            <Games msgAlert={this.msgAlert} user={user} />
           )} />
           <AuthenticatedRoute user={user} path='/players' render={() => (
-            <ChangePassword msgAlert={this.msgAlert} user={user} />
+            <Players msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>

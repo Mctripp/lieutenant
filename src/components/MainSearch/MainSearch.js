@@ -12,6 +12,13 @@ const cardOptions = Object.values(cards).map((card, i) => {
   }
 })
 
+// Removes duplicates
+const filteredCardOptions = cardOptions.filter((item, index, self) =>
+  index === self.findIndex((t) => (
+    t.text === item.text
+  ))
+)
+
 const style = {
   width: '50vh',
   fontSize: '2rem',
@@ -30,7 +37,7 @@ const MainSearch = () => {
   }
 
   const dynamicSearch = () => {
-    return cardOptions.filter(card => card.text.toLowerCase().includes(query.toLowerCase()))
+    return filteredCardOptions.filter(card => card.text.toLowerCase().includes(query.toLowerCase()))
   }
 
   if (query.length > 2) {
