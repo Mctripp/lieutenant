@@ -10,8 +10,9 @@ const cardOptions = Object.values(cards).map((card, i) => {
     key: cardIds[i],
     value: card.name,
     text: card.name,
+    id: cardIds[i],
     as: Link,
-    to: `/card/${card.name}`
+    to: `/card/${cardIds[i]}`
   }
 })
 
