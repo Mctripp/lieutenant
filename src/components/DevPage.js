@@ -75,9 +75,6 @@ const DevPage = () => {
         <Row className="justify-content-md-center">
           <Col style={search}>
             <Row className="justify-content-md-center">
-              <h2>Search for a specific card:</h2>
-            </Row>
-            <Row className="justify-content-md-center">
               <MainSearch/>
             </Row>
           </Col>
