@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Dropdown, Button } from 'semantic-ui-react'
+import { Dropdown } from 'semantic-ui-react'
 import cards from '../../MTGCards_IDs_Names_Sets'
 
 const cardIds = Object.keys(cards)
@@ -67,9 +67,6 @@ const MainSearch = () => {
         search
         selection
         text={value}
-      />
-      <Button
-        icon='right arrow'
       />
     </React.Fragment>
   )
