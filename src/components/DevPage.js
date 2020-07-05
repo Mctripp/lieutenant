@@ -81,13 +81,13 @@ const DevPage = () => {
         </Row>
         <Row style={space}/>
         <Row className="justify-content-md-center">
-          <h3>Find a player or game:</h3>
+          <h3>Find a player or game (WIP):</h3>
         </Row>
         <Row className="justify-content-md-center">
-          <h4><a href='#/games'>My Games</a></h4>
+          <h4><a href='/games'>My Games</a></h4>
         </Row>
         <Row className="justify-content-md-center">
-          <h4><a href='#/players'>My players</a></h4>
+          <h4><a href='/players'>My players</a></h4>
         </Row>
       </Col>
     </Container>
