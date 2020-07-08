@@ -1,4 +1,4 @@
-#MTG Lieutenant
+# MTG Lieutenant
 
 This app is planned for use with a [mobile data acquisition app](#). Users will gather Magic: The Gathering game data with the app, and will be able to view stats about cards, games, and players involved once that data is pushed to [a Heroku database](#).
 
