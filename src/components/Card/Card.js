@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import mtg from 'mtgsdk'
+// import axios from 'axios'
 
 const Card = ({ id }) => {
   const [loaded, setLoaded] = useState(false)
@@ -17,6 +18,8 @@ const Card = ({ id }) => {
       })
       .then(() => setCardImg(found.card.imageUrl))
       .then(() => setLoaded(true))
+    // pull information for all actions containing id of card
+    // axios()
   }, [])
 
   // This return statement will end up pulling from a formatting card display with pertinent information
