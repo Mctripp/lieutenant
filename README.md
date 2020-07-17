@@ -11,5 +11,3 @@ Since the dropdown uses a predefined set of values, [Gatherer Extractor](https:/
 ## ERD
 
 ![Lieutenant ERD](/public/LTNT_ERD.png)
-
-Each relationship will have a game_id, turn_id, and action_id property.
