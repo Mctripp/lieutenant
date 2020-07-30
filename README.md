@@ -11,3 +11,5 @@ Since the dropdown uses a predefined set of values, [Gatherer Extractor](https:/
 ## ERD
 
 ![Lieutenant ERD](/public/LTNT_ERD.png)
+
+7/30/2020 - I am likely changing the database used from gatherer to [Scryfall](https://scryfall.com/). Gatherer is nice, but does not provide images/data for almost any of the tokens, which I would like to provide data for. I will therefore be implementing use of [MTGJSON](https://mtgjson.com/), since that can provide me with an up-to-date search engine for Lieutenant, as well as the required QL to retrieve images from Scryfall. I will also figure out a way to keep the search engine updated, since I would like a pre-populated list in order to keep load times low. Ideally this will be done automatically, but it is not necessary at the moment and may be done manually until I figure it out.
