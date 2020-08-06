@@ -1,25 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
-import mtg from 'mtgsdk'
-// import axios from 'axios'
+import mtg from '../../mtgApiConfig'
+import axios from 'axios'
 
 const Card = ({ id }) => {
   const [loaded, setLoaded] = useState(false)
-  const [cardImg, setCardImg] = useState('')
+  const [cardData, setCardData] = useState('')
 
   useEffect(() => {
-    let found = {}
-    mtg.card.find(id)
-      .then(card => {
-        // Pick pertinent info out of here
-        console.log(card)
-        found = card
-      })
-      .then(() => setCardImg(found.card.imageUrl))
+    axios.get(mtg + id)
+      .then(res => setCardData(res.data))
       .then(() => setLoaded(true))
-    // pull information for all actions containing id of card
-    // axios()
+      .catch(err => console.log(err))
   }, [])
 
   // This return statement will end up pulling from a formatting card display with pertinent information
@@ -27,7 +20,7 @@ const Card = ({ id }) => {
   return (
     <React.Fragment>
       <Button as={Link} to='/'>Back to card search</Button>
-      {loaded ? (<React.Fragment><p>{name}</p><img src={cardImg}/></React.Fragment>) : 'Loading, this may take a couple seconds...'}
+      {loaded ? (<React.Fragment><p>{cardData.name}</p><img src={cardData.image_uris.normal}/></React.Fragment>) : 'Loading, this may take a couple seconds...'}
     </React.Fragment>
   )
 }

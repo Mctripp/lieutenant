@@ -1,1 +1,1 @@
-export default 'https://api.magicthegathering.io/v1/'
+export default 'https://api.scryfall.com/cards/multiverse/'
