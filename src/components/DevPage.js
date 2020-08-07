@@ -13,10 +13,6 @@ const space = {
   justifyContent: 'center',
   alignItems: 'center'
 }
-const search = {
-  background: 'grey',
-  borderRadius: '10px'
-}
 
 const DevPage = () => {
   return (
@@ -34,7 +30,7 @@ const DevPage = () => {
         </Row>
         <Row style={space}/>
         <Row className="justify-content-md-center">
-          <Col style={search}>
+          <Col>
             <Row className="justify-content-md-center">
               <MainSearch/>
             </Row>

@@ -13,6 +13,7 @@ import DevPage from '../DevPage'
 import Games from '../Games/Games'
 import Players from '../Players/Players'
 import Card from '../Card/Card'
+import About from '../About/About'
 
 class App extends Component {
   constructor () {
@@ -58,6 +59,9 @@ class App extends Component {
           )} />
           <Route path='/card/:id' render={({ match }) => (
             <Card msgAlert={this.msgAlert} setUser={this.setUser} id={match.params.id}/>
+          )} />
+          <Route path='/about' render={() => (
+            <About msgAlert={this.msgAlert} setUser={this.setUser}/>
           )} />
           <AuthenticatedRoute user={user} path='/sign-out' render={() => (
             <SignOut msgAlert={this.msgAlert} clearUser={this.clearUser} user={user} />
