@@ -1,18 +1,16 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Dropdown } from 'semantic-ui-react'
-import cards from '../../MTGCards_IDs_Names_Sets'
+import cards from '../../SearchBarJSON'
 
-const cardIds = Object.keys(cards)
-
-const cardOptions = Object.values(cards).map((card, i) => {
+const cardOptions = Object.values(cards).map((card) => {
   return {
-    key: cardIds[i],
+    key: card.index,
     value: card.name,
     text: card.name,
-    id: cardIds[i],
+    id: card.scryfallId,
     as: Link,
-    to: `/card/${cardIds[i]}`
+    to: `/card/${card.scryfallId}`
   }
 })
 
