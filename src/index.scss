@@ -1,1 +1,11 @@
+$cTimberWolf: #DADAD2;
+$cPewterBlue: #8DB0B9;
+$cTealBlue: #547B8C;
+$cDarkPurple: #331E36;
+$cDarkSlateGray: #475657;
+
+$theme-colors: (
+  "header": $cDarkPurple
+);
+
 @import '~bootstrap/scss/bootstrap';

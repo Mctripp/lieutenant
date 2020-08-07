@@ -20,7 +20,7 @@ const Card = ({ id }) => {
   return (
     <React.Fragment>
       <Button as={Link} to='/'>Back to card search</Button>
-      {loaded ? (<React.Fragment><p>{cardData.name}</p><img src={cardData.image_uris.normal}/></React.Fragment>) : 'Loading, this may take a couple seconds...'}
+      {loaded ? (<React.Fragment><br></br><img src={cardData.image_uris.normal}/></React.Fragment>) : 'Loading, this may take a couple seconds...'}
     </React.Fragment>
   )
 }
