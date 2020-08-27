@@ -32,11 +32,14 @@ const CardRadio = ({ printsSearchUri, cardData }) => {
           <CardImage
             cardUri={printUris[selectedValue]}
           />
-          <RadioGroup row>
-            {printUris.map((item, idx) => {
-              return <FormControlLabel onChange={handleChange} checked={selectedValue === idx + ''} key={idx} value={idx} labelPlacement='bottom' control={<Radio />} label={idx + 1} />
-            })}
-          </RadioGroup>
+          {printUris.length > 1 ? (
+            <RadioGroup row>
+              {printUris.map((item, idx) => {
+                return <FormControlLabel onChange={handleChange} checked={selectedValue === idx + ''} key={idx} value={idx} labelPlacement='bottom' control={<Radio />} label={idx + 1} />
+              })}
+            </RadioGroup>)
+            : <br/>
+          }
         </React.Fragment>
       )
         : '...'}
