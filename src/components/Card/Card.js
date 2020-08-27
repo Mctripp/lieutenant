@@ -16,6 +16,15 @@ const Card = ({ id }) => {
   }, [])
 
   // This return statement will end up pulling from a formatting card display with pertinent information
+  // Each card has a 'prints_search_uri' which can be requested to obtain different prints.
+  // prints_search_uri will contain 'total_cards' (int) and 'has_more' (bool)
+  // Each item in 'data' on this page will have full card information and different prints
+  // So iterate through #'total_cards' times and grab each 'image_uris' === 'normal'
+  // Display different prints as small nodes below the currently displayed image,
+  // With arrows on each end for navigation.
+  // Might have to consider using 'iilustration_id' for unique arts rather than all reprint arts
+  // ---
+  // Use pagination from https://material-ui.com/components/pagination/
 
   return (
     <React.Fragment>
