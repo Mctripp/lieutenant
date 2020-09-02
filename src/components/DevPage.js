@@ -8,7 +8,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 // TODO move this styling to .scss -----------------------------<<<---<<<
 
 const space = {
-  height: '20vh',
+  height: '15vh',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center'
