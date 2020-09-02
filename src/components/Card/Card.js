@@ -3,7 +3,8 @@ import { Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import mtg from '../../mtgApiConfig'
 import axios from 'axios'
-import CardRadio from './CardRadio/CardRadio'
+// import CardRadio from './CardRadio/CardRadio'
+import CardSlider from './CardSlider/CardSlider'
 
 const Card = ({ id }) => {
   const [loaded, setLoaded] = useState(false)
@@ -24,7 +25,7 @@ const Card = ({ id }) => {
       <br/>
       {loaded ? (
         <React.Fragment>
-          <CardRadio
+          <CardSlider
             cardData={cardData}
             printsSearchUri={cardData.prints_search_uri}
           />

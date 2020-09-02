@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
+import navImg from '../../LTNT_Logo_Mythic_Icon.svg'
 
 const authenticatedOptions = (
   <Fragment>
@@ -27,8 +28,9 @@ const alwaysOptions = (
 
 const Header = ({ user }) => (
   <Navbar bg="header" variant="dark" expand="md">
-    <Navbar.Brand href="#">
-      Lieutenant
+    <Navbar.Brand href="#/">
+      <img src={navImg} width='45' height='45'/>
+       Lieutenant
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
