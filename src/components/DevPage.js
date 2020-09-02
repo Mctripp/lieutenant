@@ -4,8 +4,16 @@ import MainSearch from './MainSearch/MainSearch'
 import { Container, Row, Col } from 'react-bootstrap'
 // const mtg = require('mtgsdk')
 // import { card } from 'mtgsdk'
+import Image from '../BG_Mythic.png'
 
 // TODO move this styling to .scss -----------------------------<<<---<<<
+
+const bgStyle = {
+  backgroundImage: `url(${Image})`,
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center',
+  backgroundSize: '60%'
+}
 
 const space = {
   height: '15vh',
@@ -16,7 +24,7 @@ const space = {
 
 const DevPage = () => {
   return (
-    <Container fluid="lg" className="justify-content-md-center">
+    <Container fluid="lg" className="justify-content-md-center" style={bgStyle}>
       <Col>
         <Row style={space}/>
         <Row className="justify-content-md-center">
