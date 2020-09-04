@@ -22,9 +22,11 @@ const CardSlider = ({ printsSearchUri, cardData }) => {
   const classes = useStyles()
   const [loaded, setLoaded] = useState(false)
   const [printUris, setPrintUris] = useState([])
+  const [secondPrintUris, setSecondPrintUris] = useState([])
   const [printSets, setPrintSets] = useState([])
   const [printSetNames, setPrintSetNames] = useState([])
-  const [selectedValue, setSelectedValue] = React.useState(1)
+  const [selectedValue, setSelectedValue] = useState(1)
+  const [isDouble, setIsDouble] = useState(false)
 
   const handleSliderChange = (event, newValue) => {
     setSelectedValue(newValue)
@@ -45,9 +47,19 @@ const CardSlider = ({ printsSearchUri, cardData }) => {
   useEffect(() => {
     axios.get(printsSearchUri)
       .then(res => {
-        setPrintUris(res.data.data.map(item => {
-          return item.image_uris.normal
-        }))
+        if (res.data.data[0].layout === 'transform') {
+          setIsDouble(true)
+          setPrintUris(res.data.data.map(item => {
+            return item.card_faces[0].image_uris.normal
+          }))
+          setSecondPrintUris(res.data.data.map(item => {
+            return item.card_faces[1].image_uris.normal
+          }))
+        } else {
+          setPrintUris(res.data.data.map(item => {
+            return item.image_uris.normal
+          }))
+        }
         setPrintSets(res.data.data.map(item => {
           return item.set
         }))
@@ -65,14 +77,26 @@ const CardSlider = ({ printsSearchUri, cardData }) => {
     <React.Fragment>
       {loaded ? (
         <React.Fragment>
-          <CardImage
-            cardUri={printUris[selectedValue - 1]}
-          />
-          {printUris.length > 0 ? (
-            <Container className={classes.container}>
-              <Typography id="input-slider" gutterBottom>
-                Set: {printSetNames[selectedValue - 1]} ({printSets[selectedValue - 1].toUpperCase()})
-              </Typography>
+          {isDouble ? (
+            <React.Fragment>
+              <CardImage
+                cardUri={printUris[selectedValue - 1]}
+              />
+              <CardImage
+                cardUri={secondPrintUris[selectedValue - 1]}
+              />
+            </React.Fragment>
+          )
+            : (
+              <CardImage
+                cardUri={printUris[selectedValue - 1]}
+              />
+            )}
+          <Container className={classes.container}>
+            <Typography id="input-slider" gutterBottom>
+              Set: {printSetNames[selectedValue - 1]} ({printSets[selectedValue - 1].toUpperCase()})
+            </Typography>
+            {(printUris.length !== 1) ? (
               <Grid container spacing={2} alignItems="stretch">
                 <Grid item xs>
                   <Slider
@@ -103,10 +127,10 @@ const CardSlider = ({ printsSearchUri, cardData }) => {
                   / {printUris.length}
                 </Grid>
               </Grid>
-            </Container>
-          )
-            : <br/>
-          }
+            )
+              : <br/>
+            }
+          </Container>
         </React.Fragment>
       )
         : '...'}

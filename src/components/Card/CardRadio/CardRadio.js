@@ -15,6 +15,7 @@ const CardRadio = ({ printsSearchUri, cardData }) => {
     axios.get(printsSearchUri)
       .then(res => {
         setPrintUris(res.data.data.map(item => {
+          console.log(item)
           return item.image_uris.normal
         }))
       })
