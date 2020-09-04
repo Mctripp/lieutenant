@@ -15,6 +15,11 @@ const bgStyle = {
   backgroundSize: '80%'
 }
 
+const textBg = {
+  backgroundColor: 'rgba(255, 255, 255, 0.5)',
+  padding: '5px'
+}
+
 const space = {
   height: '15vh',
   display: 'flex',
@@ -27,7 +32,7 @@ const DevPage = () => {
     <Container fluid="lg" className="justify-content-md-center">
       <Col style={bgStyle}>
         <Row style={space}/>
-        <Row className="justify-content-md-center">
+        <Row className="justify-content-md-center" style={textBg}>
           <h1><u>Lieutenant for Magic: The Gathering EDH/Commander</u></h1>
           <h3>Ever wonder who in your EDH group is abusing <a href='#/card/f9baef6e-a086-41d4-a20e-486f01d72406'>Cyclonic Rift</a> the most, or mucking up everyone’s mana with <a href='#/card/0806adab-6a08-411b-b249-e1c58ade354b'>Vorinclex, Voice of Hunger</a>? Want to see how many times <a href='#/card/db149aaa-3da9-48c4-92cc-b3d804285290'>Avacyn, Angel of Hope</a> has been exiled by <a href='#/card/057d2410-30d3-4b7a-9dc3-f2512c1cf31c'>Swords to Plowshares</a>, or how many <a href='#/card/ed666385-a2e7-4e1f-ad2c-babbfc0c50b3'>5/5 Elementals</a> <a href='#/card/58f311e7-7ebf-4428-b5a3-154255eb3ba1'>Omnath, Locus of Rage</a> has produced, along with the amount of face damage that they’ve done?</h3>
           <br></br>
