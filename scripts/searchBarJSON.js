@@ -36,13 +36,6 @@ axios.get('https://mtgjson.com/api/v5/AllIdentifiers.json')
 
     const data = JSON.stringify(filteredCards)
 
-    fs.writeFile('/Users/michaeltripp/Desktop/SearchBarJSON.json', data, (err) => {
-      if (err) {
-        throw err
-      }
-      console.log('JSON data is saved.')
-    })
-
     fs.writeFile('./../src/SearchBarJSON.json', data, (err) => {
       if (err) {
         throw err
