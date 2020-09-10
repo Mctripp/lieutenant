@@ -6,12 +6,16 @@ import axios from 'axios'
 // import CardRadio from './CardRadio/CardRadio'
 import CardSlider from './CardSlider/CardSlider'
 
+axios.defaults.withCredentials = false
+
 const Card = ({ id }) => {
   const [loaded, setLoaded] = useState(false)
   const [cardData, setCardData] = useState('')
 
   useEffect(() => {
-    axios.get(mtg + id)
+    axios.get(mtg + id, {
+      headers: { }
+    })
       .then(res => setCardData(res.data))
       .then(() => setLoaded(true))
       .catch(err => console.log(err))

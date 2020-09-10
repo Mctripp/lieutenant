@@ -15,6 +15,8 @@ import Players from '../Players/Players'
 import Card from '../Card/Card'
 import About from '../About/About'
 
+require('default-passive-events')
+
 class App extends Component {
   constructor () {
     super()

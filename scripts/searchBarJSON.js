@@ -29,7 +29,7 @@ axios.get('https://mtgjson.com/api/v5/AllIdentifiers.json')
 
     // Removes duplicates
     const filteredCards = searchJSON.data.filter((item, index, self) =>
-      item.token ? true : index === self.findIndex((t) => (
+      index === self.findIndex((t) => (
         t.name === item.name
       ))
     )

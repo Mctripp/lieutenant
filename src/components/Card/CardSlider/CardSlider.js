@@ -28,12 +28,14 @@ const CardSlider = ({ printsSearchUri, cardData }) => {
   const [selectedValue, setSelectedValue] = useState(1)
   const [isDouble, setIsDouble] = useState(false)
 
+  axios.defaults.withCredentials = false
+
   const handleSliderChange = (event, newValue) => {
     setSelectedValue(newValue)
   }
 
   const handleInputChange = (event) => {
-    setSelectedValue(event.target.value > printUris.length ? printUris.length - 1 : event.target.value < 1 ? 1 : event.target.value)
+    setSelectedValue(event.target.value > printUris.length ? printUris.length - 1 : event.target.value < 1 ? 1 : Number(event.target.value))
   }
 
   const handleBlur = () => {
