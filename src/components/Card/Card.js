@@ -31,7 +31,7 @@ const Card = ({ id }) => {
           />
         </React.Fragment>
       )
-        : 'Loading, this may take a couple seconds...'}
+        : <img src='./../../../public/LTNTLoading.gif'/>}
     </React.Fragment>
   )
 }

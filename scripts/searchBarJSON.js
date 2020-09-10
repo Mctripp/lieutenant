@@ -10,18 +10,40 @@ axios.get('https://mtgjson.com/api/v5/AllIdentifiers.json')
     }
     let i = 0
     for (const [_key, value] of Object.entries(res.data.data)) {
-      if (value[0].legalities.commander === 'Legal') {
+      if (value.legalities && value.legalities.commander === 'Legal') {
         searchJSON.data.push({
           index: i++,
-          name: value[0].name,
-          scryfallId: value[0].identifiers.scryfallId
+          token: false,
+          name: value.name,
+          scryfallId: value.identifiers.scryfallId
+        })
+      } else if (value.layout === 'token') {
+        searchJSON.data.push({
+          index: i++,
+          token: true,
+          name: value.types.includes('Creature') ? value.name + ' Token (' + value.colors.join('/') + ', ' + value.power + '/' + value.toughness + ')' : value.name,
+          scryfallId: value.identifiers.scryfallId
         })
       }
     }
 
-    const data = JSON.stringify(searchJSON)
+    // Removes duplicates
+    const filteredCards = searchJSON.data.filter((item, index, self) =>
+      item.token ? true : index === self.findIndex((t) => (
+        t.name === item.name
+      ))
+    )
 
-    fs.writeFile('./../src/test/SearchBarJSON.json', data, (err) => {
+    const data = JSON.stringify(filteredCards)
+
+    fs.writeFile('/Users/michaeltripp/Desktop/SearchBarJSON.json', data, (err) => {
+      if (err) {
+        throw err
+      }
+      console.log('JSON data is saved.')
+    })
+
+    fs.writeFile('./../src/SearchBarJSON.json', data, (err) => {
       if (err) {
         throw err
       }

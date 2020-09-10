@@ -33,7 +33,7 @@ const CardSlider = ({ printsSearchUri, cardData }) => {
   }
 
   const handleInputChange = (event) => {
-    setSelectedValue(event.target.value > printUris.length ? printUris.length - 1 : event.target.value < 1 ? 0 : Number(event.target.value) - 1)
+    setSelectedValue(event.target.value > printUris.length ? printUris.length - 1 : event.target.value < 1 ? 1 : event.target.value)
   }
 
   const handleBlur = () => {
@@ -133,7 +133,8 @@ const CardSlider = ({ printsSearchUri, cardData }) => {
           </Container>
         </React.Fragment>
       )
-        : '...'}
+        : 'Loading...' // <img src='./../../../public/LTNTLoading.gif'/>
+      }
     </React.Fragment>
   )
 }
