@@ -9,6 +9,7 @@ import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
 
+import Home from '../Home/Home'
 import DevPage from '../DevPage'
 import Games from '../Games/Games'
 import Players from '../Players/Players'
@@ -50,8 +51,11 @@ class App extends Component {
           />
         ))}
         <main className="container">
-          <Route exact path='/' render={() => (
+          <Route exact path='/dev' render={() => (
             <DevPage msgAlert={this.msgAlert} setUser={this.setUser} />
+          )} />
+          <Route exact path='/' render={() => (
+            <Home msgAlert={this.msgAlert} setUser={this.setUser} />
           )} />
           <Route path='/sign-up' render={() => (
             <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
