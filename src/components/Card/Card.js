@@ -5,6 +5,7 @@ import mtg from '../../mtgApiConfig'
 import axios from 'axios'
 // import CardRadio from './CardRadio/CardRadio'
 import CardSlider from './CardSlider/CardSlider'
+import LoadingImage from './../../LTNTLoading.gif'
 
 axios.defaults.withCredentials = false
 
@@ -35,7 +36,7 @@ const Card = ({ id }) => {
           />
         </React.Fragment>
       )
-        : <img src='./../../../public/LTNTLoading.gif'/>}
+        : <img src={LoadingImage}/>}
     </React.Fragment>
   )
 }

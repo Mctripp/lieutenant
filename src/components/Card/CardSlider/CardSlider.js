@@ -3,6 +3,7 @@ import axios from 'axios'
 import { makeStyles } from '@material-ui/core/styles'
 import { Grid, Slider, Input, Typography, Container } from '@material-ui/core'
 import CardImage from './CardImage/CardImage'
+import LoadingImage from './../../../LTNTLoading.gif'
 
 const useStyles = makeStyles({
   root: {
@@ -135,7 +136,7 @@ const CardSlider = ({ printsSearchUri, cardData }) => {
           </Container>
         </React.Fragment>
       )
-        : 'Loading...' // <img src='./../../../public/LTNTLoading.gif'/>
+        : <img src={LoadingImage}/>
       }
     </React.Fragment>
   )
