@@ -45,7 +45,15 @@ const MainSearch = () => {
   }
 
   const dynamicSearch = () => {
-    return filteredCardOptions.filter(card => card.text.toLowerCase().includes(query.toLowerCase()))
+    return filteredCardOptions.filter(card => card.text.toLowerCase().includes(query.toLowerCase())).sort((a, b) => {
+      if (a.text > b.text) {
+        return 1
+      }
+      if (b.text > a.text) {
+        return -1
+      }
+      return 0
+    })
   }
 
   // <Link key={index} to={'card/' + item.text}>{item.text}</Link>
