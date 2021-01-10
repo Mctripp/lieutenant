@@ -50,23 +50,27 @@ const CardSlider = ({ printsSearchUri, cardData }) => {
   useEffect(() => {
     axios.get(printsSearchUri)
       .then(res => {
-        if (res.data.data[0].layout === 'transform') {
+        const layoutType = res.data.data[0].layout
+        const cardData = res.data.data
+        if (layoutType === 'transform' ||
+        layoutType === 'modal_dfc' ||
+      layoutType === 'art_series') {
           setIsDouble(true)
-          setPrintUris(res.data.data.map(item => {
+          setPrintUris(cardData.map(item => {
             return item.card_faces[0].image_uris.normal
           }))
-          setSecondPrintUris(res.data.data.map(item => {
+          setSecondPrintUris(cardData.map(item => {
             return item.card_faces[1].image_uris.normal
           }))
         } else {
-          setPrintUris(res.data.data.map(item => {
+          setPrintUris(cardData.map(item => {
             return item.image_uris.normal
           }))
         }
-        setPrintSets(res.data.data.map(item => {
+        setPrintSets(cardData.map(item => {
           return item.set
         }))
-        setPrintSetNames(res.data.data.map(item => {
+        setPrintSetNames(cardData.map(item => {
           return item.set_name
         }))
       })
