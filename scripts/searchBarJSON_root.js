@@ -21,7 +21,12 @@ axios.get('https://mtgjson.com/api/v5/AllIdentifiers.json')
         searchJSON.data.push({
           index: i++,
           token: true,
-          name: value.types.includes('Creature') ? value.name + ' Token (' + value.colors.join('/') + ', ' + value.power + '/' + value.toughness + ')' : value.name,
+          name: value.types.includes('Creature')
+            ? value.name + ' Token (' + (value.colors.length > 0
+              ? value.colors.join('/')
+              : 'Colorless') +
+            ', ' + value.power + '/' + value.toughness + ')'
+            : value.name,
           scryfallId: value.identifiers.scryfallId
         })
       }
