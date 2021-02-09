@@ -67,7 +67,7 @@ class SignUp extends Component {
               />
             </Form.Group>
             <Form.Group controlId="username">
-              <Form.Label>Email address</Form.Label>
+              <Form.Label>Username</Form.Label>
               <Form.Control
                 required
                 type="text"
